@@ -12,10 +12,19 @@ int main()
 	cout << endl << endl;
 
 	Pika p2;
-	p2 -= p1;
+	p2 = p1;
+	p2 += p1;
 
 	cout << "P2" << endl;
 	cout << p2 << endl;
+
+	cout << endl << endl;
+
+	Pika p3;
+	p3 = p2+p1;
+
+	cout << "P3" << endl;
+	cout << p3 << endl;
 
 	cout << endl;
 	cout << "---------------------------------------------------" << endl;

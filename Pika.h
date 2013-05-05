@@ -35,9 +35,10 @@ public:
 	// Operatoret
 	friend ostream& operator << (ostream&, Pika&);
 	Pika& operator=(const Pika&);
-
 	Pika& operator+=(const Pika&);
 	Pika& operator-=(const Pika&);
+	const Pika operator+(const Pika&) const;
+	const Pika operator-(const Pika&) const;
 
 };
 

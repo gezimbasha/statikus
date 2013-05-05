@@ -95,3 +95,13 @@ Pika& Pika::operator-=(const Pika &rhs)
 
 	return *this;
 }
+
+const Pika Pika::operator+(const Pika& rhs) const
+{
+	return Pika(*this) += rhs;
+}
+
+const Pika Pika::operator-(const Pika& rhs) const
+{
+	return Pika(*this) -= rhs;
+}
