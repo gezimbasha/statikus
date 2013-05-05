@@ -12,7 +12,7 @@ class Pika
 
 public:
 	Pika(void);
-	Pika(Vector2d, Vector2d);
+	Pika(Vector2d*, Vector2d*);
 	Pika(double, double, double, double);
 	~Pika(void);
 

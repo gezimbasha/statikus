@@ -9,10 +9,10 @@ Pika::Pika(void)
 	_moment = 0;
 }
 
-Pika::Pika(Vector2d _pos, Vector2d _frc)
+Pika::Pika(Vector2d* _pos, Vector2d* _frc)
 {
-	_pozita = _pos;
-	_forcat = _frc;
+	_pozita << _pos->coeff(0), _pos->coeff(1);
+	_forcat << _frc->coeff(0), _frc->coeff(1);
 	_moment = 0;
 }
 
