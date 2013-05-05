@@ -36,5 +36,8 @@ public:
 	friend ostream& operator << (ostream&, Pika&);
 	Pika& operator=(const Pika&);
 
+	Pika& operator+=(const Pika&);
+	Pika& operator-=(const Pika&);
+
 };
 

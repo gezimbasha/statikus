@@ -73,3 +73,25 @@ Pika& Pika::operator=(const Pika &rhs)
 
 	return *this;
 }
+
+Pika& Pika::operator+=(const Pika &rhs)
+{
+	this->x(this->x()+rhs.x());
+	this->y(this->y()+rhs.y());
+	this->Fx(this->Fx()+rhs.Fx());
+	this->Fy(this->Fy()+rhs.Fy());
+	this->moment(this->M()+rhs.M());
+
+	return *this;
+}
+
+Pika& Pika::operator-=(const Pika &rhs)
+{
+	this->x(this->x()-rhs.x());
+	this->y(this->y()-rhs.y());
+	this->Fx(this->Fx()-rhs.Fx());
+	this->Fy(this->Fy()-rhs.Fy());
+	this->moment(this->M()-rhs.M());
+
+	return *this;
+}
