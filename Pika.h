@@ -12,6 +12,7 @@ class Pika
 	double _moment;
 
 public:
+	// Konstruktoret
 	Pika(void);
 	Pika(Vector2d*, Vector2d*);
 	Pika(double, double, double, double);
@@ -29,6 +30,7 @@ public:
 	void y(double);
 	void Fx(double);
 	void Fy(double);
+	void pozita(double, double);
 	void force(double, double);
 	void moment(double);
 
@@ -41,6 +43,11 @@ public:
 	const Pika operator-(const Pika&) const;
 	bool operator==(const Pika&) const;
 	bool operator!=(const Pika&) const;
+
+	// Funksione
+	double krahu_x(const Pika&) const;
+	double krahu_y(const Pika&) const;
+	double moment(const Pika&) const;
 
 };
 

@@ -3,23 +3,19 @@
 
 int main()
 {
-	Pika p1(1.5,1,0,2);
-	p1.moment(3.5);
-
+	Pika p1;
 	Pika p2;
-	p2 = p1;
-	p2 += p1;
+	p1.pozita(0,0);
+	p2.pozita(-3,0);
 
-	Pika p3;
-	p3 = p2+p1;
+	p2.force(4, 90);
 
-	cout << (p1 == p2) << endl;
-	cout << (p2 == p3) << endl;
-	cout << ((p2+p1)==p3) << endl;
+	cout << p1.moment(p2) << endl;
 
 	cout << endl;
 	cout << "---------------------------------------------------" << endl;
 	cout << setw(50) << TITULLI;
-	cin.ignore();
+	cout << endl;
+	system("pause");
 	return 0;
 }

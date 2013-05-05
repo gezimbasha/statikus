@@ -40,6 +40,11 @@ void Pika::y(double _y) { _pozita(1) = _y; }
 void Pika::Fx(double _X) { _forcat(0) = _X; }
 void Pika::Fy(double _Y) { _forcat(1) = _Y; }
 
+void Pika::pozita(double x, double y)
+{
+	_pozita << x, y;
+}
+
 void Pika::force(double f, double a)
 {
 	_forcat << f*cos(deg2rad(a)), f*sin(deg2rad(a));
@@ -120,4 +125,23 @@ bool Pika::operator==(const Pika& rhs) const
 bool Pika::operator!=(const Pika& rhs) const
 {
 	return !(*this == rhs);
+}
+
+// Funksionet
+double Pika::krahu_x(const Pika& rhs) const
+{
+	return (rhs.x()-this->x());
+}
+
+double Pika::krahu_y(const Pika& rhs) const
+{
+	return (rhs.y()-this->y());
+}
+
+double Pika::moment(const Pika& rhs) const
+{
+	double rez = 0;
+	rez += (rhs.Fx() * this->krahu_y(rhs));
+	rez += (rhs.Fy() * this->krahu_x(rhs));
+	return rez;
 }
