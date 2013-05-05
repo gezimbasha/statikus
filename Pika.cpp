@@ -105,3 +105,19 @@ const Pika Pika::operator-(const Pika& rhs) const
 {
 	return Pika(*this) -= rhs;
 }
+
+bool Pika::operator==(const Pika& rhs) const
+{
+	if(this->x() == rhs.x())
+		if(this->y() == rhs.y())
+			if(this->Fx() == rhs.Fx())
+				if(this->Fy() == rhs.Fy())
+					if(this->M() == rhs.M())
+						return true;
+	return false;
+}
+
+bool Pika::operator!=(const Pika& rhs) const
+{
+	return !(*this == rhs);
+}

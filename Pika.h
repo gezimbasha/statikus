@@ -39,6 +39,8 @@ public:
 	Pika& operator-=(const Pika&);
 	const Pika operator+(const Pika&) const;
 	const Pika operator-(const Pika&) const;
+	bool operator==(const Pika&) const;
+	bool operator!=(const Pika&) const;
 
 };
 
