@@ -27,6 +27,7 @@ Pika::~Pika(void)
 {
 }
 
+// Qasesit
 double Pika::x() {return _pozita.coeff(0);}
 double Pika::y() {return _pozita.coeff(1);}
 double Pika::Fx() {return _forcat.coeff(0);}
@@ -47,4 +48,11 @@ void Pika::force(double f, double a)
 void Pika::moment(double _m)
 {
 	_moment = _m;
+}
+
+// Operatoret
+ostream& operator << (ostream &os, Pika& _p)
+{
+	os << "M(" << _p.x() << "," << _p.y() << ")";
+	return os;
 }

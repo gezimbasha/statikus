@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
 #include <Eigen\Eigen\Dense>
 using namespace Eigen;
 using namespace std;
@@ -30,6 +31,9 @@ public:
 	void Fy(double);
 	void force(double, double);
 	void moment(double);
+
+	// Operatoret
+	friend ostream& operator << (ostream&, Pika&);
 
 };
 
