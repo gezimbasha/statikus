@@ -28,12 +28,12 @@ Pika::~Pika(void)
 }
 
 // Qasesit
-double Pika::x() {return _pozita.coeff(0);}
-double Pika::y() {return _pozita.coeff(1);}
-double Pika::Fx() {return _forcat.coeff(0);}
-double Pika::Fy() {return _forcat.coeff(1);}
-double Pika::F() {return sqrt(pow(_forcat.coeff(0),2)+pow(_forcat.coeff(1),2));}
-double Pika::M() {return _moment;}
+double Pika::x() const {return _pozita.coeff(0);}
+double Pika::y() const {return _pozita.coeff(1);}
+double Pika::Fx() const {return _forcat.coeff(0);}
+double Pika::Fy() const {return _forcat.coeff(1);}
+double Pika::F() const {return sqrt(pow(_forcat.coeff(0),2)+pow(_forcat.coeff(1),2));}
+double Pika::M() const {return _moment;}
 
 void Pika::x(double _x) { _pozita(0) = _x; }
 void Pika::y(double _y) { _pozita(1) = _y; }
@@ -53,6 +53,23 @@ void Pika::moment(double _m)
 // Operatoret
 ostream& operator << (ostream &os, Pika& _p)
 {
-	os << "M(" << _p.x() << "," << _p.y() << ")";
+	os << "M(" << _p.x() << "," << _p.y() << ")" << endl;
+	os << "M.F(" << _p.Fx() << "," << _p.Fy() << ")" << endl;
+	os << "M.M(" << _p.M() << ")" << endl;
+	os << "Ft = " << _p.F() << endl;
 	return os;
+}
+
+Pika& Pika::operator=(const Pika &rhs)
+{
+	if(this != &rhs)
+	{
+		this->x(rhs.x());
+		this->y(rhs.y());
+		this->Fx(rhs.Fx());
+		this->Fy(rhs.Fy());
+		this->moment(rhs.M());
+	}
+
+	return *this;
 }

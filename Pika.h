@@ -18,13 +18,13 @@ public:
 	~Pika(void);
 
 	// Qasja
-	double x();
-	double y();
-	double Fx();
-	double Fy();
-	double F();
-	double M();
-
+	double x() const;
+	double y() const;
+	double Fx() const;
+	double Fy() const;
+	double F() const;
+	double M() const;
+	
 	void x(double);
 	void y(double);
 	void Fx(double);
@@ -34,6 +34,7 @@ public:
 
 	// Operatoret
 	friend ostream& operator << (ostream&, Pika&);
+	Pika& operator=(const Pika&);
 
 };
 
