@@ -1,7 +1,6 @@
 #include "Pika.h"
 #include "Funksione.h"
 
-
 Pika::Pika(void)
 {
 	_pozita << 0, 0;
@@ -141,7 +140,10 @@ double Pika::krahu_y(const Pika& rhs) const
 double Pika::moment(const Pika& rhs) const
 {
 	double rez = 0;
-	rez += (rhs.Fx() * this->krahu_y(rhs));
+	rez -= (rhs.Fx() * this->krahu_y(rhs));
+	if(PROG_DEBUG) cout << rhs.Fx() << "*" << this->krahu_y(rhs) << "=" << (rhs.Fx() * this->krahu_y(rhs)) << endl;
 	rez += (rhs.Fy() * this->krahu_x(rhs));
+	if(PROG_DEBUG) cout << rhs.Fy() << "*" << this->krahu_x(rhs) << "=" << (rhs.Fy() * this->krahu_x(rhs)) << endl;
+
 	return rez;
 }

@@ -6,9 +6,9 @@ int main()
 	Pika p1;
 	Pika p2;
 	p1.pozita(0,0);
-	p2.pozita(-3,0);
+	p2.pozita(-4,2);
 
-	p2.force(4, 90);
+	p2.force(4, 360-30);
 
 	cout << p1.moment(p2) << endl;
 
