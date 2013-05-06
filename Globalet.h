@@ -19,3 +19,12 @@ const std::string currentDateTime() {
 
     return buf;
 }
+
+void _fund()
+{
+	cout << endl;
+	cout << "---------------------------------------------------" << endl;
+	cout << setw(50) << TITULLI;
+	cout << endl;
+	system("pause");
+}

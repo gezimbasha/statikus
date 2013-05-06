@@ -1,8 +1,6 @@
 #pragma once
 #include <math.h>
 
-bool PROG_DEBUG = true;
-
 double deg2rad(double a)
 {
 	double a_rad;

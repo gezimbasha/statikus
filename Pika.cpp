@@ -1,5 +1,6 @@
 #include "Pika.h"
 #include "Funksione.h"
+#include "DebugVals.h"
 
 Pika::Pika(void)
 {
@@ -143,9 +144,9 @@ double Pika::moment(const Pika& rhs) const
 {
 	double rez = 0;
 	rez -= (rhs.Fx() * this->krahu_y(rhs));
-	if(PROG_DEBUG) cout << rhs.Fx() << "*" << this->krahu_y(rhs) << "=" << (rhs.Fx() * this->krahu_y(rhs)) << endl;
+	if(PIKA_MOMENT_DEBUG) cout << rhs.Fx() << "*" << this->krahu_y(rhs) << "=" << (rhs.Fx() * this->krahu_y(rhs)) << endl;
 	rez += (rhs.Fy() * this->krahu_x(rhs));
-	if(PROG_DEBUG) cout << rhs.Fy() << "*" << this->krahu_x(rhs) << "=" << (rhs.Fy() * this->krahu_x(rhs)) << endl;
+	if(PIKA_MOMENT_DEBUG) cout << rhs.Fy() << "*" << this->krahu_x(rhs) << "=" << (rhs.Fy() * this->krahu_x(rhs)) << endl;
 	rez += (rhs.M());
 
 	return rez;

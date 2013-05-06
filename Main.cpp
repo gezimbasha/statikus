@@ -11,11 +11,7 @@ int main()
 	p2.force(4, 360-30);
 
 	cout << p1.moment(p2) << endl;
-
-	cout << endl;
-	cout << "---------------------------------------------------" << endl;
-	cout << setw(50) << TITULLI;
-	cout << endl;
-	system("pause");
+	
+	_fund();
 	return 0;
 }
