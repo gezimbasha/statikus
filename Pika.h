@@ -10,6 +10,7 @@ class Pika
 	Vector2d _pozita;
 	Vector2d _forcat;
 	double _moment;
+	string _emri;
 
 public:
 	// Konstruktoret
@@ -25,6 +26,7 @@ public:
 	double Fy() const;
 	double F() const;
 	double M() const;
+	string emri() const;
 	
 	void x(double);
 	void y(double);
@@ -33,6 +35,7 @@ public:
 	void pozita(double, double);
 	void force(double, double);
 	void moment(double);
+	void emri(string);
 
 	// Operatoret
 	friend ostream& operator << (ostream&, Pika&);

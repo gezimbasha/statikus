@@ -33,11 +33,13 @@ double Pika::Fx() const {return _forcat.coeff(0);}
 double Pika::Fy() const {return _forcat.coeff(1);}
 double Pika::F() const {return sqrt(pow(_forcat.coeff(0),2)+pow(_forcat.coeff(1),2));}
 double Pika::M() const {return _moment;}
+string Pika::emri() const {return _emri;}
 
 void Pika::x(double _x) { _pozita(0) = _x; }
 void Pika::y(double _y) { _pozita(1) = _y; }
 void Pika::Fx(double _X) { _forcat(0) = _X; }
 void Pika::Fy(double _Y) { _forcat(1) = _Y; }
+void Pika::emri(string _e) { _emri = _e; }
 
 void Pika::pozita(double x, double y)
 {
@@ -144,6 +146,7 @@ double Pika::moment(const Pika& rhs) const
 	if(PROG_DEBUG) cout << rhs.Fx() << "*" << this->krahu_y(rhs) << "=" << (rhs.Fx() * this->krahu_y(rhs)) << endl;
 	rez += (rhs.Fy() * this->krahu_x(rhs));
 	if(PROG_DEBUG) cout << rhs.Fy() << "*" << this->krahu_x(rhs) << "=" << (rhs.Fy() * this->krahu_x(rhs)) << endl;
+	rez += (rhs.M());
 
 	return rez;
 }
