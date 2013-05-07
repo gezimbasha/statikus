@@ -4,20 +4,25 @@
 
 enum reaksion_lloji
 {
+	LIRE,
 	PALEVIZSHEM,
 	LEVIZSHEM,
 	INKASTRIM
 };
 
 class Reaksion : public Pika
-{	
-	Pika _pk;
+{
 	reaksion_lloji m_Lloji;
+
 public:
 	Reaksion(void);
-	Reaksion(double x, double y, reaksion_lloji);
+	Reaksion(reaksion_lloji);
 	virtual ~Reaksion(void);
 
 	void lloji(reaksion_lloji);
 	reaksion_lloji lloji() const;
+	bool R[3];
+
+private:
+	void reaksionet(reaksion_lloji);
 };

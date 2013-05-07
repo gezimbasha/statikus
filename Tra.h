@@ -1,9 +1,11 @@
 #pragma once
 
 #include "Pika.h"
+#include "Reaksion.h"
 #include <vector>
 
 typedef vector<Pika> Pika_Stack;
+typedef vector<Reaksion> Reaks_Stack;
 
 // Klasa Tra
 // Definon nje tra me gjatesi diskrete L, shfrytezohet si
@@ -13,9 +15,7 @@ class Tra
 {
 	// Pikat kryesore
 	Pika_Stack _pikat;
-	Pika_Stack _reaksionet;
 	int _npk;
-	int _nrk;
 
 	int _tGjatesia;
 
@@ -41,7 +41,7 @@ public:
 	void L(int L);
 
 	// Kontakti
-	void kontakt(Pika &pk);
+	void kontakt(Reaksion &pk);
 
 	// Deklarimet
 	double L() const;
@@ -57,8 +57,13 @@ public:
 	// Operatoret
 	friend ostream& operator << (ostream&, Tra &);
 
+	// Reaksionet
+	Reaks_Stack _reaksionet;
+	int _nrk;
+
 protected:
 	// Routina te brendshme
+	void llogarit_Reaksionet();
 	void llogarit_Forcat();
 	void llogarit_Moment(Pika &A, Pika &B);
 };

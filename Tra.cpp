@@ -1,9 +1,10 @@
 #include "Tra.h"
+#include "Reaksion.h"
 
 Tra::Tra(void)
 {
 	_tGjatesia = 0;
-	_npk = 0;
+	_npk = 0; _nrk = 0;
 	_Fx = 0; _Fy = 0; _M = 0;
 }
 
@@ -14,7 +15,7 @@ Tra::~Tra(void)
 Tra::Tra(int _gjatesia)
 {
 	_tGjatesia = _gjatesia;
-	_npk = 0;
+	_npk = 0; _nrk = 0;
 	_Fx = 0; _Fy = 0; _M = 0;
 }
 
@@ -62,19 +63,18 @@ void Tra::llogarit_Moment(Pika &A, Pika &B)
 
 void Tra::llogarit_Momentet(Pika &pk)
 {
+	_M = 0;
 	for(unsigned i=0; i<_pikat.size(); i++)
 		Tra::llogarit_Moment(pk, _pikat.at(i));
+	for(unsigned i=0; i<_reaksionet.size(); i++)
+		Tra::llogarit_Moment(pk, _reaksionet.at(i));
 }
 
-void Tra::kontakt(Pika &pk)
+void Tra::kontakt(Reaksion &pk)
 {
-	if(Tra::ekuiliber())
-		return;
-
-	Tra::llogarit_Momentet(pk);
-	pk.Fx(-_Fx);
-	pk.Fy(-_Fy);
-	pk.moment(-_M);
+	_nrk += 1;
+	_reaksionet.reserve(_nrk);
+	_reaksionet.push_back(pk);
 }
 
 // Qasesit
