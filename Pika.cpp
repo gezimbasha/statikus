@@ -72,6 +72,7 @@ ostream& operator << (ostream &os, Pika& _p)
 	os << "M.F(" << _p.Fx() << "," << _p.Fy() << ")" << endl;
 	os << "M.M(" << _p.M() << ")" << endl;
 	os << "Ft = " << _p.F() << endl;
+	os << "phi = " << atan((_p.Fy()/_p.Fx()))*(180/M_PI) << " shkalle" << endl;
 	return os;
 }
 

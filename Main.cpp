@@ -1,10 +1,13 @@
 #include "Pika.h"
 #include "Tra.h"
+#include "Reaksion.h"
 #include "Globalet.h"
 
 int main()
 {
 	Tra AB(4);
+
+	Reaksion reaksion; reaksion.pozita(1,0);
 
 	Pika forcat[3];
 	forcat[0].pozita(0,0); forcat[0].force(4, 90);
@@ -14,11 +17,17 @@ int main()
 	AB.forca(forcat, 3);
 
 	cout << AB << endl;
-
-	AB.llogarit_Momentet(forcat[0]);
+			 
+	AB.kontakt(reaksion);
 
 	cout << AB << endl;
-			 
+	
+	AB.force(reaksion);
+
+	cout << AB << endl;
+
+	cout << reaksion << endl;
+
 	_fund();
 	return 0;
 }

@@ -52,6 +52,7 @@ void Tra::llogarit_Forcat()
 	Pika temp = _pikat.at(_npk-1);
 	_Fx += temp.Fx();
 	_Fy += temp.Fy();
+	_M += temp.M();
 }
 
 void Tra::llogarit_Moment(Pika &A, Pika &B)
@@ -65,11 +66,38 @@ void Tra::llogarit_Momentet(Pika &pk)
 		Tra::llogarit_Moment(pk, _pikat.at(i));
 }
 
+void Tra::kontakt(Pika &pk)
+{
+	if(Tra::ekuiliber())
+		return;
+
+	Tra::llogarit_Momentet(pk);
+	pk.Fx(-_Fx);
+	pk.Fy(-_Fy);
+	pk.moment(-_M);
+}
+
 // Qasesit
 double Tra::Fx() const { return _Fx; }
 double Tra::Fy() const { return _Fy; }
 double Tra::M() const { return _M; }
+double Tra::Rx() const { return _Rx; }
+double Tra::Ry() const { return _Ry; }
+double Tra::Rm() const { return _Rm; }
 unsigned int Tra::_madhesia() const { return _pikat.capacity(); }
+
+bool Tra::ekuiliber()
+{
+	if( (_Rx + _Fx) == 0 )
+		if( (_Ry + _Fy) == 0)
+			if( (_Rm + _M) == 0)
+				return true;
+
+	if( _Fx == 0 && _Fy == 0 && _M == 0 )
+		return true;
+
+	return false;
+}
 
 // Operatoret
 ostream& operator << (ostream& os, Tra &t)
@@ -77,5 +105,8 @@ ostream& operator << (ostream& os, Tra &t)
 	os << "Fx = " << t.Fx() << " [kN]" << endl;
 	os << "Fy = " << t.Fy() << " [kN]"<< endl;
 	os << "M  = " << t.M() <<  " [kN m]"<< endl;
+	if(t.ekuiliber()) os << "Trari eshte ne ekuiliber" << endl;
+	else os << "Trari nuk eshte ne ekuiliber" << endl;
+
 	return os;
 }
