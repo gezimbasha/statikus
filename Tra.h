@@ -30,17 +30,23 @@ public:
 	void force(Pika &pk);
 	void force(double x, double y, double F, double kend);
 	void forca(Pika *pk, int nf);
+	void llogarit_Momentet(Pika &pk);
 
 	// Deklarimet
 	double L() const;
 	double Fx() const;
 	double Fy() const;
-	double M(Pika &pk) const;
+	double M() const;
+	unsigned int _madhesia() const;
 
 	void L(int L);
+
+	// Operatoret
+	friend ostream& operator << (ostream&, Tra &);
 
 protected:
 	// Routina te brendshme
 	void llogarit_Forcat();
+	void llogarit_Moment(Pika &A, Pika &B);
 };
 

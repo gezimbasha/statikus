@@ -54,6 +54,28 @@ void Tra::llogarit_Forcat()
 	_Fy += temp.Fy();
 }
 
+void Tra::llogarit_Moment(Pika &A, Pika &B)
+{
+	_M += A.moment(B);
+}
+
+void Tra::llogarit_Momentet(Pika &pk)
+{
+	for(unsigned i=0; i<_pikat.size(); i++)
+		Tra::llogarit_Moment(pk, _pikat.at(i));
+}
+
 // Qasesit
 double Tra::Fx() const { return _Fx; }
 double Tra::Fy() const { return _Fy; }
+double Tra::M() const { return _M; }
+unsigned int Tra::_madhesia() const { return _pikat.capacity(); }
+
+// Operatoret
+ostream& operator << (ostream& os, Tra &t)
+{
+	os << "Fx = " << t.Fx() << " [kN]" << endl;
+	os << "Fy = " << t.Fy() << " [kN]"<< endl;
+	os << "M  = " << t.M() <<  " [kN m]"<< endl;
+	return os;
+}
