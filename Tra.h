@@ -35,13 +35,12 @@ public:
 	double L() const;
 	double Fx() const;
 	double Fy() const;
-	double M() const;
+	double M(Pika &pk) const;
 
 	void L(int L);
 
 protected:
 	// Routina te brendshme
 	void llogarit_Forcat();
-	void regen(int n);
 };
 

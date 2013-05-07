@@ -13,6 +13,14 @@ int main()
 
 	AB.forca(forcat, 3);
 
+	cout << AB.Fx() << endl;
+	cout << AB.Fy() << endl;
+
+	AB.force(3,0,2,180);
+
+	cout << AB.Fx() << endl;
+	cout << AB.Fy() << endl;
+		 
 	_fund();
 	return 0;
 }
