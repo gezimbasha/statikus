@@ -7,15 +7,15 @@ using namespace std;
 
 class Pika
 {
-	Vector2d _pozita;
-	Vector2d _forcat;
+	double _pozita[2];
+	double _forcat[2];
 	double _moment;
 	string _emri;
 
 public:
 	// Konstruktoret
 	Pika(void);
-	Pika(Vector2d*, Vector2d*);
+	Pika(const Vector2d&, const Vector2d&);
 	Pika(double, double, double, double);
 	~Pika(void);
 
