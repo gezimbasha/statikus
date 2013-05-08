@@ -5,6 +5,13 @@
 using namespace Eigen;
 using namespace std;
 
+enum ngarkese_lloj
+{
+	KATRORE,
+	TREKENDESH_P,
+	TREKENDESH_M
+};
+
 class Pika
 {
 	double _pozita[2];
@@ -35,6 +42,7 @@ public:
 	void pozita(double, double);
 	void force(double, double);
 	void moment(double);
+	void ngarkese(double q, double L, ngarkese_lloj lloj); 
 	void emri(string);
 
 	// Operatoret

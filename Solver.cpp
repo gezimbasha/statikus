@@ -43,6 +43,8 @@ void Solver::zgjidh(Tra _t)
 		SOLVER(2,2) = _t._reaksionet[0].krahu_x(_t._reaksionet[1]);
 	}
 
+	cout << SOLVER << endl;
+
 	_t.llogarit_Momentet(_t._reaksionet[0]);
 
 	// Krijohet vektori qe permban rezultatet nga Trari

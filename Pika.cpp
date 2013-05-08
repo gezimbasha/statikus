@@ -161,3 +161,26 @@ double Pika::moment(const Pika& rhs) const
 
 	return rez;
 }
+
+void Pika::ngarkese(double q, double L, ngarkese_lloj _LL)
+{
+	double _Faccum = 0;
+	switch(_LL)
+	{
+	case KATRORE:
+		_Faccum = q*L;
+		Pika::pozita(Pika::x()+L/2, Pika::y());
+		Pika::force(_Faccum, 90);
+		break;
+	case TREKENDESH_P:
+		_Faccum = 0.5*q*L;
+		Pika::pozita(Pika::x()+(2/3.)*L, Pika::y());
+		Pika::force(_Faccum, 90);
+		break;
+	case TREKENDESH_M:
+		_Faccum = 0.5*q*L;
+		Pika::pozita(Pika::x()+(1/3.)*L, Pika::y());
+		Pika::force(_Faccum, 90);
+		break;
+	}
+}
