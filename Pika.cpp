@@ -184,3 +184,11 @@ void Pika::ngarkese(double q, double L, ngarkese_lloj _LL)
 		break;
 	}
 }
+
+double Pika::krahu(const Pika &pk, int i) const
+{
+	if(i == 0)
+		return Pika::krahu_y(pk);
+	else
+		return Pika::krahu_x(pk);
+}

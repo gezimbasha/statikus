@@ -58,6 +58,7 @@ public:
 	// Funksione
 	double krahu_x(const Pika&) const;
 	double krahu_y(const Pika&) const;
+	double krahu(const Pika&, int) const;
 	double moment(const Pika&) const;
 
 };
