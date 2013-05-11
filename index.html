@@ -28,26 +28,53 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>Projekti Statikus.</h3>
+          <h2>Statikus.</h2>
 
-<p>Projekt ne gjuhen programuese C++ dizajnuar per te llogaritur reaksionet e mbeshtetesve ne rrafshin XY. Problemet qe zgjidhen me kete problem bien nen grupin e problemeve te Ekuilibrit ne 2 dimensione.
-Ne perputhmeri me planprogramin e Universitetit te Prishtines, Fakultetit Teknik kjo rutine zgjidh probleme te lendes Statika/Mekanika I.</p>
+<p>Është një routine(algoritëm) i shkruar në gjuhën C++ e cila simulon ekuilibrin e sistemeve materiale. Është e bazuar në plan-programin mësimor të Fakultetit Teknik (UP) specifkisht i lëndës Statika dhe Mekanika I. Ky alogritëm krijon matricën zgjidhëse të sistemit material bazuar në numrin e mbështetësve dhe reaksioneve te tyre dhe pastaj i aplikon ligjet e Mekanikes teorike per te zgjidhur problemin.</p>
 
-<h3>Shembull</h3>
+<h2>Rreth Projektit</h2>
 
-<pre><code>Pika A;
-A.pozita(3,0);
-A.force(3, 45); // 3 kN ne 45 shkalle
+<p>Ky projekt eshte ne zhvillim e siper nga studentet e Fakultetit Teknik, dega e Makinerise ne Universitetin e Prishtines.</p>
 
-Pika B;
-B.pozita(0,0);
+<h3>Autoret</h3>
 
-B.moment(A); // Kalkulon momentin prej pikes A ne piken B
+<p>Gëzim Basha, Mirsad Gjoni dhe Klementina Berisha</p>
+
+<h2>Shembull</h2>
+
+<p><img src="https://github.com/gezimbasha/statikus/blob/gh-pages/images/diagram_16r.png?raw=true" alt="Diagrami"></p>
+
+<pre><code>// Vlerat e dhëna
+double F1=4; double F2=3; double F3=3; double alfa=45.00; double q=1;
+
+int main()
+{
+    Tra AB(9);
+
+    Pika forcat[4];
+    forcat[0].pozita(0,0); forcat[0].force(F1,alfa);
+    forcat[1].pozita(5,0); forcat[1].force(F2, 90);
+    forcat[2].pozita(6,0); forcat[2].ngarkese(q, 3, TREKENDESH_M);
+    forcat[3].pozita(9,0); forcat[3].force(F3, 180+90);
+
+    Reaksion A(PALEVIZSHEM); A.pozita(2,0); A.emri("A");
+    Reaksion B(LEVIZSHEM); B.pozita(6,0); B.emri("B");
+
+    AB.forca(forcat,4);
+    AB.kontakt(A);
+    AB.kontakt(B);
+
+    Solver sol;
+    sol.zgjidh(AB);
+
+    _fund();
+    return 0;
+}
 </code></pre>
 
 <h3>Zhvillim</h3>
 
-<p>Momentalisht ky projekt eshte ende nen zhvillim e siper.</p>
+<p>Eshte diku rreth 20% i perfunduar.</p>
         </section>
 
         <aside id="sidebar">
