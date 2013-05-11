@@ -37,6 +37,12 @@ void Reaksion::reaksionet(reaksion_lloji _r)
 		R[2]=false;
 	}
 
+	if(_r == GERBER){
+		R[0]=false;
+		R[1]=false;
+		R[2]=true;
+	}
+
 	if(_r == INKASTRIM){
 		R[0]=true;
 		R[1]=true;
@@ -47,4 +53,11 @@ void Reaksion::reaksionet(reaksion_lloji _r)
 reaksion_lloji Reaksion::lloji() const 
 {
 	return m_Lloji;
+}
+
+void Reaksion::lloji(reaksion_lloji ll)
+{
+	
+	m_Lloji = ll;
+	reaksionet(m_Lloji);
 }

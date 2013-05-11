@@ -1,5 +1,4 @@
 #include "Tra.h"
-#include "Reaksion.h"
 
 Tra::Tra(void)
 {

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Pika.h"
-#include "Reaksion.h"
 #include "Tra.h"
 
 #include <Eigen\Eigen\Dense>

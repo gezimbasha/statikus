@@ -1,6 +1,9 @@
 #include "Pika.h"
+#ifndef _FUNKSIONET_H
 #include "Funksione.h"
-#include "DebugVals.h"
+#endif
+
+bool PIKA_MOMENT_DEBUG = false;
 
 Pika::Pika(void)
 {
@@ -65,14 +68,25 @@ void Pika::moment(double _m)
 	_moment = _m;
 }
 
+string ifEmri(const string p)
+{
+	if(p != "\0")
+		return p;
+	else
+		return "";
+}
+
 // Operatoret
 ostream& operator << (ostream &os, Pika& _p)
 {
-	os << "M(" << _p.x() << "," << _p.y() << ")" << endl;
-	os << "M.F(" << _p.Fx() << "," << _p.Fy() << ")" << endl;
-	os << "M.M(" << _p.M() << ")" << endl;
-	os << "Ft = " << _p.F() << endl;
-	os << "phi = " << atan((_p.Fy()/_p.Fx()))*(180/M_PI) << " shkalle" << endl;
+	os  <<  ifEmri(_p.emri()) << "(" << _p.x() << "," << _p.y() << ")" << endl;
+	if(_absZero(_p.Fx())!=0)
+		os << "X" <<  ifEmri(_p.emri()) << " = " << _p.Fx() << endl;
+	if(_absZero(_p.Fy())!=0)
+		os << "Y" << ifEmri(_p.emri()) << " = " << _p.Fy() << endl;
+	if(_absZero(_p.M())!=0)
+		os << "M" << ifEmri(_p.emri()) << " = " << _p.M() << endl;
+
 	return os;
 }
 

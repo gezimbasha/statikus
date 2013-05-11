@@ -5,6 +5,9 @@
 using namespace Eigen;
 using namespace std;
 
+// Shtesat e mija
+
+
 enum ngarkese_lloj
 {
 	KATRORE,

@@ -1,15 +1,6 @@
 #include "Solver.h"
 
-template<class T>
-T _absZero(T x)
-{
-	double TOL = 1e-9;
-	if(x < TOL){
-		return 0;
-	}
-	else
-		return x;
-}
+bool SOLVER_MATRIX_DEBUG = false;
 
 Solver::Solver(void)
 {
@@ -36,9 +27,7 @@ void Solver::zgjidh(Tra _t)
 		
 	// Krijohet matrica katrore zgjidhese ( npan x npan )
 	MatrixXd SOLVER(npan, npan);
-
 	double *X = new double[npan];
-
 	if(nrks == 1){
 		//Inkastrim
 		SOLVER.setZero();
@@ -67,7 +56,8 @@ void Solver::zgjidh(Tra _t)
 		}
 	}
 
-	cout << SOLVER << endl;
+	if(SOLVER_MATRIX_DEBUG)
+		cout << SOLVER << endl;
 
 	// Krijohet vektori qe permban rezultatet nga Trari
 	MatrixXd REZULTATI(3,1);
@@ -77,5 +67,22 @@ void Solver::zgjidh(Tra _t)
 	MatrixXd PANJOHURAT(3,1);
 	PANJOHURAT = SOLVER.fullPivHouseholderQr().solve(REZULTATI);
 
+	// Printimi i rezultatit
+
+	Reaksion *R = new Reaksion[nrks];
+
+	/*for(int i=0; i<nrks; i++){
+		cout << "Reaksion ";
+		R[i].lloji(_t._reaksionet[i].lloji());
+		R[i].emri(_t._reaksionet[i].emri());
+		R[i].pozita(_t._reaksionet[i].x(), _t._reaksionet[i].y());
+		if(nrks==1)
+			R[i].Fx(-PANJOHURAT(0)); R[i].Fy(-PANJOHURAT(1)); R[i].moment(-PANJOHURAT(2));
+		if(i>1)
+			R[i-1].Fx(-PANJOHURAT(0)); R[i-1].Fy(-PANJOHURAT(1)); R[i].Fy(-PANJOHURAT(3));
+		cout << R[i] << endl;
+	}*/
+
 	cout << -PANJOHURAT << endl;
+
 }

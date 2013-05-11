@@ -7,6 +7,7 @@ enum reaksion_lloji
 	LIRE,
 	PALEVIZSHEM,
 	LEVIZSHEM,
+	GERBER,
 	INKASTRIM
 };
 

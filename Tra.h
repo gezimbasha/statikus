@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Pika.h"
 #include "Reaksion.h"
 #include <vector>
 
